@@ -17,8 +17,8 @@ public class AppMercado {
     public static String obterLogin(Scanner sc) {
         System.out.println("Login");
         String login = sc.nextLine();
-        while (login.length() <3){
-            System.out.println("Digite um login que contenha mais de 3 caracteres!");
+        while (!login.equals("emerson")){
+            System.out.println("Login incorreto!");
             login = sc.nextLine();
         }
         return login;
@@ -27,8 +27,8 @@ public class AppMercado {
     public  static String obterSenha(Scanner sc){
         System.out.println("Senha");
         String senha = sc.nextLine();
-        while (senha.length() <3){
-            System.out.println("Digite uma senha que contenha mais de 3 caracteres");
+        while (!senha.equals("123")){
+            System.out.println("Senha incorreta!");
             senha = sc.nextLine();
         }
         return senha;
