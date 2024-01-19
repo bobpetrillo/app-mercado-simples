@@ -6,15 +6,33 @@ public class AppMercado {
 
         Scanner sc = new Scanner(System.in);
 
-        String login = obterLogin(sc);
-        String senha = obterSenha(sc);
+        String[] valorLogin = {"emerson", "gustavo", "marcia", "helio", "freddy"};
 
-        System.out.println("Logado com sucesso!");
+        while (true) {
+            System.out.println("Seja bem vindo!");
+            System.out.println("Escolha uma opção:");
+            System.out.println("1 - Login");
+            System.out.println("2 - Cadastrar");
+            System.out.println("3 - Sair");
 
+            int opcao = sc.nextInt();
+
+            if (opcao == 1) {
+                System.out.println("Por favor, digite seu login e senha:");
+                String login = obterLogin(sc, valorLogin);
+                //String senha = obterSenha(sc);
+                System.out.println("Logado com sucesso!");
+            } else if (opcao == 2) {
+                System.out.println("Você escolheu cadastrar");
+            } else if (opcao == 3) {
+                System.out.println("Você escolheu sair");
+                break;
+            }
+        }
 
     }
 
-    public static String obterLogin(Scanner sc) {
+    public static String obterLogin(Scanner sc, String[] logins) {
         System.out.println("Login");
         String login = sc.nextLine();
         while (!login.equals("emerson")){
