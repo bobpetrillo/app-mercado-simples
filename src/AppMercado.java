@@ -21,7 +21,6 @@ public class AppMercado {
                 System.out.println("Por favor, digite seu login e senha:");
                 String login = obterLogin(sc, valorLogin);
                 //String senha = obterSenha(sc);
-                System.out.println("Logado com sucesso!");
             } else if (opcao == 2) {
                 System.out.println("Você escolheu cadastrar");
             } else if (opcao == 3) {
@@ -32,16 +31,28 @@ public class AppMercado {
 
     }
 
+    // Método do Login:
     public static String obterLogin(Scanner sc, String[] logins) {
-        System.out.println("Login");
-        String login = sc.nextLine();
-        while (!login.equals("emerson")){
-            System.out.println("Login incorreto!");
-            login = sc.nextLine();
+        System.out.println("Login:");
+        String login = sc.next();
+        while (!loginEncontrado(logins, login)){
+            System.out.println("Login incorreto, digite novamente!");
+            login = sc.next();
         }
+        System.out.println("Logado com sucesso!");
         return login;
     }
+    //Método para usar no método do login:
+    public static boolean loginEncontrado(String[] vetorLogin, String nomeLogin){
+        for (int i = 0; i < vetorLogin.length; i++) {
+            if(vetorLogin[i].equals(nomeLogin)){
+                return true;
+            }
+        }
+        return false;
+    }
 
+    //Método de senha:
     public  static String obterSenha(Scanner sc){
         System.out.println("Senha");
         String senha = sc.nextLine();
