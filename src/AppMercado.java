@@ -6,15 +6,7 @@ public class AppMercado {
 
         Scanner sc = new Scanner(System.in);
 
-        String[][] usuarios = {
-                {"emerson", "eme123"},
-                {"gustavo", "gus123"},
-                {"marcia", "mar123"},
-                {"helio", "hel123"},
-                {"freddy", "fre123"}
-        };
-
-        String[] valorLogin = Login.filtrarNomes(usuarios);
+        String[] valorLogin = Login.filtrarNomes(BancoDeDados.usuarios);
 
         while (true) {
             System.out.println("Seja bem vindo!");
@@ -28,7 +20,7 @@ public class AppMercado {
             if (opcao == 1) {
                 System.out.println("Por favor, digite seu login e senha:");
                 String login = Login.obterLogin(sc, valorLogin);
-                Login.confereSenha(sc, usuarios, login);
+                Login.confereSenha(sc, BancoDeDados.usuarios, login);
                 System.out.println("Logado com sucesso!");
             } else if (opcao == 2) {
                 System.out.println("Você escolheu cadastrar");
