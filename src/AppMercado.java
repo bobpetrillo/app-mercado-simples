@@ -7,6 +7,7 @@ public class AppMercado {
         Scanner sc = new Scanner(System.in);
 
         String[] valorLogin = Login.filtrarNomes(BancoDeDados.usuarios);
+        int contador = 0;
 
         while (true) {
             System.out.println("Seja bem vindo!");
@@ -17,21 +18,33 @@ public class AppMercado {
 
             int opcao = sc.nextInt();
 
-            if (opcao == 1) {
-                System.out.println("Por favor, digite seu login e senha:");
-                String login = Login.obterLogin(sc, valorLogin);
-                Login.confereSenha(sc, BancoDeDados.usuarios, login);
-                System.out.println("Logado com sucesso!");
-            } else if (opcao == 2) {
-                System.out.println("Você escolheu cadastrar");
-            } else if (opcao == 3) {
-                System.out.println("Você escolheu sair");
-                break;
+            switch (opcao){
+                case 1:
+                    if(valorLogin.equals(null)){
+                        System.out.println("Não existem usuários, favor fazer novo cadastro");
+                    }else {
+                        System.out.println("Por favor, digite seu login e senha:");
+                        String login = Login.obterLogin(sc, valorLogin);
+                        Login.confereSenha(sc, BancoDeDados.usuarios, login);
+                        System.out.println("Logado com sucesso!");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Cadastrar usuário");
+                    Cadastro.cadastrarUsuario(BancoDeDados.usuarios, sc, contador);
+                    contador++;
+                    System.out.println("Usuário cadastrado com sucesso!");
+                    break;
+                case 3:
+                    System.out.println("Você escolheu sair");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
             }
+
         }
 
     }
-
-
 
 }
