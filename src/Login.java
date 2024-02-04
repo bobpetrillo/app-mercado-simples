@@ -45,7 +45,7 @@ public class Login {
      */
     public static boolean loginEncontrado(String[] vetorLogin, String nomeLogin){
         for (int i = 0; i < vetorLogin.length; i++) {
-            if(vetorLogin[i].equals(nomeLogin)){
+            if(vetorLogin[i] != null && vetorLogin[i].equals(nomeLogin)){
                 return true;
             }
         }
@@ -62,7 +62,7 @@ public class Login {
     public  static void confereSenha(Scanner sc, String[][] senhas, String login){
         System.out.println("Senha:");
         String senha = sc.next();
-        while (!encontrarSenha(senhas, senha, login)){
+        while (!encontrarSenha(senhas, login, senha)){
             System.out.println("Senha incorreta, digite novamente!");
             senha = sc.next();
         }

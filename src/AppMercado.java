@@ -20,7 +20,7 @@ public class AppMercado {
             switch (opcao){
                 case 1:
                     String[] valorLogin = Login.filtrarNomes(BancoDeDados.usuarios);
-                    if(valorLogin.equals(null)){
+                    if(BancoDeDados.contador == 0){
                         System.out.println("Não existem usuários, favor fazer novo cadastro");
                     }else {
                         System.out.println("Por favor, digite seu login e senha:");
