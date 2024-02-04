@@ -6,8 +6,7 @@ public class AppMercado {
 
         Scanner sc = new Scanner(System.in);
 
-        String[] valorLogin = Login.filtrarNomes(BancoDeDados.usuarios);
-        int contador = 0;
+
 
         while (true) {
             System.out.println("Seja bem vindo!");
@@ -20,6 +19,7 @@ public class AppMercado {
 
             switch (opcao){
                 case 1:
+                    String[] valorLogin = Login.filtrarNomes(BancoDeDados.usuarios);
                     if(valorLogin.equals(null)){
                         System.out.println("Não existem usuários, favor fazer novo cadastro");
                     }else {
@@ -31,8 +31,8 @@ public class AppMercado {
                     break;
                 case 2:
                     System.out.println("Cadastrar usuário");
-                    Cadastro.cadastrarUsuario(BancoDeDados.usuarios, sc, contador);
-                    contador++;
+                    Cadastro.cadastrarUsuario(BancoDeDados.usuarios, sc, BancoDeDados.contador);
+                    BancoDeDados.contador++;
                     System.out.println("Usuário cadastrado com sucesso!");
                     break;
                 case 3:
