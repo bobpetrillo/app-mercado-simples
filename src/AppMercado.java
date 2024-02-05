@@ -6,8 +6,6 @@ public class AppMercado {
 
         Scanner sc = new Scanner(System.in);
 
-
-
         while (true) {
             System.out.println("Seja bem vindo!");
             System.out.println("Escolha uma opção:");
