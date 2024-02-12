@@ -1,8 +1,10 @@
 public class BancoDeDados {
 
-    static String[][] usuarios = new String[5][2];
+//    Matriz antiga para uso de cadastro e login:
+//    static String[][] usuarios = new String[5][2];
+
     static int contador = 0;
-    Usuario[] user = new Usuario[5];
+    static Usuario[] user = new Usuario[3];
 
 
 

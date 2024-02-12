@@ -2,6 +2,21 @@ import java.util.Scanner;
 
 public class Login {
 
+    public static boolean login(Scanner sc){
+        System.out.println("Nome:");
+        String nome = sc.next();
+        System.out.println("Senha:");
+        String senha = sc.next();
+        for (int i = 0; i < BancoDeDados.contador; i++) {
+            if (nome.equals(BancoDeDados.user[i].nome) && senha.equals(BancoDeDados.user[i].senha)){
+                return true;
+            }
+        }
+        System.out.println("Login ou senha incorretos, digite novamente:");
+        return false;
+    }
+
+
     public static String[] filtrarNomes(String[][] usuarios) {
         String[] nomes = new String[usuarios.length];
         for (int i = 0; i < usuarios.length; i++) {

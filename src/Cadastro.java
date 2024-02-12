@@ -3,18 +3,19 @@ import java.util.Scanner;
 public class Cadastro {
 
 
-    public static String[][] cadastrarUsuario(String [][] usuarios, Scanner sc, int contador){
-        if(contador >= usuarios.length){
+    public static void cadastrarUsuario(Usuario[] usuario, Scanner sc, int contador){
+        if(contador >= usuario.length){
             System.out.println("Limite de cadastro excedido!");
         }else {
-            System.out.println("Digite um nome:");
+            Usuario userObjeto = new Usuario();
+            System.out.println("Digite seu nome:");
             String nome = sc.next();
-            usuarios[contador][0] = nome;
-            System.out.println("Digite uma senha:");
+            userObjeto.nome = nome;
+            System.out.println("Digite sua senha:");
             String senha = sc.next();
-            usuarios[contador][1] = senha;
+            userObjeto.senha = senha;
+            usuario[contador] = userObjeto;
         }
-        return usuarios;
     }
 
 }

@@ -17,19 +17,19 @@ public class AppMercado {
 
             switch (opcao){
                 case 1:
-                    String[] valorLogin = Login.filtrarNomes(BancoDeDados.usuarios);
                     if(BancoDeDados.contador == 0){
                         System.out.println("Não existem usuários, favor fazer novo cadastro");
                     }else {
                         System.out.println("Por favor, digite seu login e senha:");
-                        String login = Login.obterLogin(sc, valorLogin);
-                        Login.confereSenha(sc, BancoDeDados.usuarios, login);
+                        while (!Login.login(sc)){
+                            continue;
+                        }
                         System.out.println("Logado com sucesso!");
                     }
                     break;
                 case 2:
                     System.out.println("Cadastrar usuário");
-                    Cadastro.cadastrarUsuario(BancoDeDados.usuarios, sc, BancoDeDados.contador);
+                    Cadastro.cadastrarUsuario(BancoDeDados.user, sc, BancoDeDados.contador);
                     BancoDeDados.contador++;
                     System.out.println("Usuário cadastrado com sucesso!");
                     break;
